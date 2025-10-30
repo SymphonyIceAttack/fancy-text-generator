@@ -1,21 +1,34 @@
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import type React from "react";
 import "./globals.css";
+
 const geistSans = Geist({
-  variable: "--font-geist-sans",
   subsets: ["latin"],
+  variable: "--font-geist-sans",
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "fancy-text-generator",
-  description: "fancy-text-generator",
+  title: "Fancy Text Generator - Create Stylish Unicode Text",
+  description:
+    "Transform your text into 12+ unique Unicode styles including bold, italic, script, monospace, circled, boxed, and more. Copy and paste anywhere!",
+  keywords: [
+    "fancy text",
+    "unicode text",
+    "text generator",
+    "stylish text",
+    "text converter",
+    "unicode converter",
+  ],
+  generator: "Next.js",
 };
 
 export default function RootLayout({
@@ -25,12 +38,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <SpeedInsights />
-      <Analytics />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
