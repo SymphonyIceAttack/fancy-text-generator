@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "text converter",
     "unicode converter",
   ],
-  generator: "Next.js",
+  generator: "SymphonyIceAttack",
 };
 
 export default function RootLayout({
