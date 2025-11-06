@@ -18,6 +18,10 @@
   "linter": {
     "enabled": true,
     "rules": {
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
+
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": "off"
