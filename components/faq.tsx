@@ -1,9 +1,11 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface FAQItem {
   question: string;
@@ -44,12 +46,6 @@ const faqData: FAQItem[] = [
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleQuestion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background/50">
       <div className="max-w-4xl mx-auto">
@@ -62,44 +58,22 @@ export function FAQ() {
           </p>
         </div>
 
-        <div className="space-y-4">
+        <Accordion type="single" collapsible className="space-y-4">
           {faqData.map((faq, index) => (
-            <Card
+            <AccordionItem
               key={faq.question}
-              className="border-2 hover:border-accent/50 transition-all overflow-hidden"
+              value={`item-${index}`}
+              className="border-2 border-border rounded-lg px-6 hover:border-accent/50 transition-all bg-card"
             >
-              <button
-                type="button"
-                onClick={() => toggleQuestion(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-accent/5 transition-colors"
-              >
-                <h3 className="text-lg font-bold text-foreground pr-8">
-                  {faq.question}
-                </h3>
-                <ChevronDown
-                  className={cn(
-                    "w-6 h-6 text-accent shrink-0 transition-transform duration-300",
-                    openIndex === index && "rotate-180",
-                  )}
-                />
-              </button>
-              <div
-                className={cn(
-                  "grid transition-all duration-300",
-                  openIndex === index
-                    ? "grid-rows-[1fr] opacity-100"
-                    : "grid-rows-[0fr] opacity-0",
-                )}
-              >
-                <div className="overflow-hidden">
-                  <div className="px-6 pb-5 pt-2 text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </div>
-                </div>
-              </div>
-            </Card>
+              <AccordionTrigger className="text-lg font-bold text-foreground hover:no-underline hover:text-accent py-5">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   );
