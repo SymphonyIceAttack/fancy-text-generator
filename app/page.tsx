@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FancyTextGenerator } from "@/components/fancy-text-generator";
+import { FAQ } from "@/components/faq";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         </div>
       </nav>
       <FancyTextGenerator />
+      <FAQ />
     </main>
   );
 }
