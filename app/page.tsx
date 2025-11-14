@@ -16,10 +16,10 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-3">
             <Link
-              href="/blog"
+              href="/posts"
               className="px-6 py-2.5 rounded-lg bg-accent text-accent-foreground hover:bg-accent/90 transition-all font-bold shadow-lg hover:shadow-xl hover:scale-105"
             >
-              Blog
+              Posts
             </Link>
             <ThemeToggle />
           </div>
