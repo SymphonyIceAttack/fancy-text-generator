@@ -1,7 +1,9 @@
 import { Analytics } from "@vercel/analytics/next";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import type React from "react";
+import { JsonLdStructuredData } from "@/components/seo/json-ld";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,9 +19,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fancy Text Generator - Create Stylish Unicode Text",
+  metadataBase: new URL("https://yourdomain.com"),
+  title: {
+    default: "Fancy Text Generator - Create Stylish Unicode Text Online Free",
+    template: "%s | Fancy Text Generator",
+  },
   description:
-    "Transform your text into 12+ unique Unicode styles including bold, italic, script, monospace, circled, boxed, and more. Copy and paste anywhere!",
+    "Transform your text into 12+ unique Unicode styles including bold, italic, script, monospace, circled, boxed, and more. Perfect for social media, messaging, and creative projects. Free online tool with instant copy & paste functionality.",
   keywords: [
     "fancy text",
     "unicode text",
@@ -27,8 +33,111 @@ export const metadata: Metadata = {
     "stylish text",
     "text converter",
     "unicode converter",
+    "instagram fonts",
+    "facebook text",
+    "twitter fonts",
+    "text styles",
+    "glitch text",
+    "script text",
+    "bold text",
+    "italic text",
+    "monospace text",
+    "circled text",
+    "boxed text",
+    "mathematical text",
+    "fraktur text",
+    "double struck text",
   ],
-  generator: "SymphonyIceAttack",
+  authors: [{ name: "SymphonyIceAttack", url: "https://yourdomain.com" }],
+  creator: "SymphonyIceAttack",
+  publisher: "SymphonyIceAttack",
+  formatDetection: {
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://yourdomain.com",
+    title: "Fancy Text Generator - Create Stylish Unicode Text Online Free",
+    description:
+      "Transform your text into 12+ unique Unicode styles including bold, italic, script, monospace, circled, boxed, and more. Perfect for social media, messaging, and creative projects.",
+    siteName: "Fancy Text Generator",
+    images: [
+      {
+        url: "/images/unicode-text-showcase.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Fancy Text Generator - Unicode Text Styles Showcase",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fancy Text Generator - Create Stylish Unicode Text Online Free",
+    description:
+      "Transform your text into 12+ unique Unicode styles. Perfect for social media, messaging, and creative projects. Free online tool with instant copy & paste functionality.",
+    creator: "@yourusername",
+    images: ["/images/unicode-text-showcase.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-site-verification-code",
+    yandex: "your-yandex-verification-code",
+    yahoo: "your-yahoo-verification-code",
+  },
+  alternates: {
+    canonical: "https://yourdomain.com",
+    languages: {
+      "en-US": "https://yourdomain.com/en",
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "icon-32x32",
+        url: "/icons/favicon-32x32.png",
+        sizes: "32x32",
+      },
+      {
+        rel: "icon-16x16",
+        url: "/icons/favicon-16x16.png",
+        sizes: "16x16",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+      },
+    ],
+  },
+  manifest: "/manifest.json",
+  category: "utilities",
+  classification: "Text Tools, Unicode Converter, Social Media Tools",
+  referrer: "origin-when-cross-origin",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+  ],
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -41,8 +150,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        {children}
-        <Analytics />
+        <JsonLdStructuredData />
+        <ThemeProvider>
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

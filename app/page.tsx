@@ -1,32 +1,146 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FancyTextGenerator } from "@/components/fancy-text-generator";
-import { FAQ } from "@/components/faq";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-violet-600 via-fuchsia-500 to-cyan-400 dark:from-violet-950 dark:via-fuchsia-950 dark:to-cyan-950">
-      <nav className="border-b-2 border-primary/20 bg-background/95 backdrop-blur-md">
-        <div className="container mx-auto px-4 py-5 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-2xl font-black tracking-tight text-foreground uppercase"
-          >
-            Fancy Text Generator
-          </Link>
-          <div className="flex items-center gap-3">
+    <main className="min-h-screen relative">
+      {/* Modern gradient background with animated elements */}
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-600 via-slate-600 to-gray-700 .dark:from-gray-950 .dark:via-slate-950 .dark:to-gray-950">
+        {/* Animated background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-cyan-500/10 to-pink-500/10 .dark:from-transparent .dark:via-cyan-400/5 .dark:to-pink-400/5" />
+
+        {/* Floating orbs effect */}
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gray-400/15 rounded-full blur-3xl animate-pulse delay-500" />
+      </div>
+
+      {/* Main content with glass morphism */}
+      <div className="relative z-10">
+        <nav className="border-b border-white/20 bg-white/10 .dark:bg-black/20 backdrop-blur-xl shadow-lg">
+          <div className="container mx-auto px-4 py-5 flex items-center justify-between">
             <Link
-              href="/posts"
-              className="px-6 py-2.5 rounded-lg bg-accent text-accent-foreground hover:bg-accent/90 transition-all font-bold shadow-lg hover:shadow-xl hover:scale-105"
+              href="/"
+              className="text-2xl font-black tracking-tight text-white drop-shadow-lg hover:text-cyan-200 transition-colors duration-300"
             >
-              Posts
+              ✨ Fancy Text Generator
             </Link>
-            <ThemeToggle />
+            <div className="flex items-center gap-3">
+              <Link
+                href="/about"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-gray-500 hover:from-purple-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+              >
+                About
+              </Link>
+              <Link
+                href="/faq"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-gray-500 hover:from-pink-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+              >
+                FAQ
+              </Link>
+              <Link
+                href="/contact"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-gray-500 hover:from-green-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/posts"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-gray-500 hover:from-cyan-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+              >
+                Blog
+              </Link>
+              <ThemeToggle />
+            </div>
           </div>
+        </nav>
+
+        {/* Content container with glass morphism */}
+        <div className="bg-white/10 .dark:bg-black/20 backdrop-blur-xl min-h-screen">
+          <FancyTextGenerator />
+
+          {/* Showcase Images */}
+          <section className="py-20 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-white mb-4">
+                  ✨ See Amazing Results
+                </h2>
+                <p className="text-xl text-white/80">
+                  Explore the endless possibilities with our text generator
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="relative rounded-2xl overflow-hidden group">
+                  <Image
+                    src="/images/unicode-text-showcase.jpg"
+                    alt="Unicode text showcase"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-white font-bold text-lg">
+                      12+ Text Styles
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      Bold, italic, script & more
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative rounded-2xl overflow-hidden group">
+                  <Image
+                    src="/images/social-media-usage.jpg"
+                    alt="Social media usage"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-white font-bold text-lg">
+                      Social Media Ready
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      Perfect for Instagram, Twitter & more
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative rounded-2xl overflow-hidden group">
+                  <Image
+                    src="/images/multilingual-support.jpg"
+                    alt="Multilingual support"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-white font-bold text-lg">
+                      Multi-Language
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      English & Chinese supported
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center mt-12">
+                <Link
+                  href="/about"
+                  className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-400 hover:to-pink-400 text-white font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+                >
+                  Learn More About Us
+                </Link>
+              </div>
+            </div>
+          </section>
         </div>
-      </nav>
-      <FancyTextGenerator />
-      <FAQ />
+      </div>
     </main>
   );
 }

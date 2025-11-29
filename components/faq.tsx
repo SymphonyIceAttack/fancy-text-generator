@@ -47,13 +47,19 @@ const faqData: FAQItem[] = [
 
 export function FAQ() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background/50">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-gray-400/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-pink-400/10 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-4xl mx-auto relative">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-black mb-4 text-foreground uppercase tracking-tight">
-            Frequently Asked Questions
+          <h2 className="text-5xl font-black mb-6 text-white drop-shadow-2xl uppercase tracking-tight">
+            ❓ Frequently Asked Questions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Everything you need to know about fancy text generation
           </p>
         </div>
@@ -63,12 +69,12 @@ export function FAQ() {
             <AccordionItem
               key={faq.question}
               value={`item-${index}`}
-              className="border-2 border-border rounded-lg px-6 hover:border-accent/50 transition-all bg-card"
+              className="border-2 border-white/30 rounded-2xl px-8 hover:border-cyan-400/70 transition-all duration-500 bg-white/10 dark:bg-black/20 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-cyan-400/20"
             >
-              <AccordionTrigger className="text-lg font-bold text-foreground hover:no-underline hover:text-accent py-5">
+              <AccordionTrigger className="text-lg font-bold text-white hover:text-cyan-200 py-6 hover:no-underline transition-colors duration-300">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+              <AccordionContent className="text-white/80 leading-relaxed pb-6 text-base">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

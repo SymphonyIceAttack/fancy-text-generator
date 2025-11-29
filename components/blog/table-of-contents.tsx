@@ -68,9 +68,9 @@ export function TableOfContents({ content }: { content: string }) {
           <a
             key={heading.id}
             href={`#${heading.id}`}
-            className={`block py-1 text-sm transition-colors hover:text-purple-600 dark:hover:text-purple-400 ${
+            className={`block py-1 text-sm transition-colors hover:text-gray-600 dark:hover:text-gray-400 ${
               activeId === heading.id
-                ? "text-purple-600 dark:text-purple-400 font-medium"
+                ? "text-gray-600 dark:text-gray-400 font-medium"
                 : "text-gray-600 dark:text-gray-400"
             }`}
             style={{ paddingLeft: `${(heading.level - 1) * 12}px` }}

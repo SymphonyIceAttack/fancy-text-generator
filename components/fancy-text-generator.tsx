@@ -663,44 +663,63 @@ export function FancyTextGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-4 -left-4 w-72 h-72 bg-gradient-to-br from-cyan-400/20 to-transparent rounded-full blur-3xl" />
+        <div className="absolute -bottom-8 -right-8 w-80 h-80 bg-gradient-to-tl from-pink-400/20 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-5xl mx-auto relative">
+        {/* Enhanced Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-8 h-8 text-accent" />
-            <h1 className="text-5xl font-bold text-balance">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="relative">
+              <Sparkles className="w-10 h-10 text-cyan-300 animate-pulse" />
+              <div className="absolute inset-0 bg-cyan-300/20 rounded-full blur-xl animate-pulse" />
+            </div>
+            <h1 className="text-6xl font-black text-white drop-shadow-2xl text-balance">
               {displayedTitle}
-              <span className="animate-pulse">|</span>
+              <span className="text-cyan-300 animate-pulse">|</span>
             </h1>
+            <div className="relative">
+              <Sparkles className="w-10 h-10 text-pink-300 animate-pulse delay-300" />
+              <div className="absolute inset-0 bg-pink-300/20 rounded-full blur-xl animate-pulse delay-300" />
+            </div>
           </div>
-          <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
-            Transform your plain text into special Unicode characters. Copy and
-            paste anywhere - social media, messaging apps, and more!
+          <p className="text-xl text-white/90 text-pretty max-w-3xl mx-auto leading-relaxed">
+            Transform your plain text into stunning Unicode characters.
+            <span className="text-cyan-200 font-semibold">
+              {" "}
+              Copy and paste anywhere
+            </span>{" "}
+            - social media, messaging apps, and more!
           </p>
         </div>
 
-        {/* Input Section */}
-        <Card className="p-6 mb-8 border-2">
+        {/* Enhanced Input Section */}
+        <Card className="p-8 mb-10 bg-white/20 dark:bg-black/30 backdrop-blur-xl border-white/30 shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500">
           <label
             htmlFor="input-text"
-            className="block text-sm font-medium mb-2"
+            className="block text-lg font-bold mb-4 text-white drop-shadow-md"
           >
-            Enter your text
+            ✍️ Enter your text
           </label>
           <Textarea
             id="input-text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Type something..."
-            className="min-h-[120px] text-lg resize-none"
+            placeholder="Type something magical..."
+            className="min-h-[140px] text-lg resize-none bg-white/90 dark:bg-black/50 border-white/50 text-foreground placeholder:text-muted-foreground focus:border-cyan-400 focus:ring-cyan-400/50 transition-all duration-300"
           />
         </Card>
 
-        {/* Output Section */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold mb-6">Styled Results</h2>
-          <div className="grid gap-4">
+        {/* Enhanced Output Section */}
+        <div className="space-y-6">
+          <h2 className="text-3xl font-bold text-white drop-shadow-xl text-center mb-8">
+            🎨 Styled Results
+          </h2>
+          <div className="grid gap-6">
             {textStyles.map((style, index) => {
               const transformedText = style.transform(inputText);
               const isCopied = copiedIndex === index;
@@ -709,39 +728,47 @@ export function FancyTextGenerator() {
                 <Card
                   key={style.name}
                   className={cn(
-                    "p-5 transition-all hover:shadow-md border-2",
-                    isCopied && "border-accent",
+                    "p-6 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl border-2 backdrop-blur-xl",
+                    isCopied
+                      ? "border-cyan-400 bg-cyan-500/20 shadow-cyan-400/50"
+                      : "border-white/30 bg-white/10 dark:bg-black/20 hover:border-cyan-400/70 hover:shadow-cyan-400/30",
                   )}
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start justify-between gap-6">
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h3 className="font-semibold text-sm">{style.name}</h3>
-                        <span className="text-xs text-muted-foreground">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/30 to-gray-500/30 border border-white/20">
+                          <h3 className="font-bold text-sm text-white">
+                            {style.name}
+                          </h3>
+                        </div>
+                        <span className="text-xs text-white/70 font-medium">
                           {style.description}
                         </span>
                       </div>
-                      <p className="break-words leading-relaxed text-xl">
+                      <p className="break-words leading-relaxed text-2xl font-medium text-white drop-shadow-sm">
                         {transformedText}
                       </p>
                     </div>
                     <Button
-                      size="sm"
+                      size="lg"
                       variant={isCopied ? "default" : "outline"}
                       onClick={() => copyToClipboard(transformedText, index)}
                       className={cn(
-                        "shrink-0 transition-all",
-                        isCopied && "bg-accent text-accent-foreground",
+                        "shrink-0 transition-all duration-300 hover:scale-110 backdrop-blur-sm",
+                        isCopied
+                          ? "bg-gradient-to-r from-cyan-500 to-gray-500 text-white border-0 shadow-lg"
+                          : "bg-white/20 hover:bg-white/30 text-white border-white/30 hover:border-cyan-400/50",
                       )}
                     >
                       {isCopied ? (
                         <>
-                          <Check className="w-4 h-4 mr-2" />
-                          Copied
+                          <Check className="w-5 h-5 mr-2" />
+                          Copied!
                         </>
                       ) : (
                         <>
-                          <Copy className="w-4 h-4 mr-2" />
+                          <Copy className="w-5 h-5 mr-2" />
                           Copy
                         </>
                       )}
@@ -753,12 +780,14 @@ export function FancyTextGenerator() {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-12 text-center text-sm text-muted-foreground">
-          <p className="text-pretty">
-            All text transformations use Unicode characters that work across all
-            platforms and applications.
-          </p>
+        {/* Enhanced Footer */}
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20">
+            <p className="text-white/90 font-medium">
+              ✨ All transformations use Unicode characters that work across all
+              platforms
+            </p>
+          </div>
         </div>
       </div>
     </div>

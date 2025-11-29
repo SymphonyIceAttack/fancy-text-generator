@@ -57,16 +57,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     console.log("[v0] Discovered routes:", discoveredRoutes);
 
-    // Generate sitemap entries for discovered static routes
-    const staticPages: MetadataRoute.Sitemap = discoveredRoutes.map(
-      (route) => ({
+    // Generate sitemap entries for discovered static routes with enhanced SEO
+    const staticPages: MetadataRoute.Sitemap = discoveredRoutes.map((route) => {
+      const routePriority =
+        route === "/"
+          ? 1.0
+          : route === "/about"
+            ? 0.9
+            : route === "/faq"
+              ? 0.8
+              : route === "/contact"
+                ? 0.8
+                : route === "/posts"
+                  ? 0.7
+                  : 0.6;
+
+      const routeChangeFreq =
+        route === "/"
+          ? ("daily" as const)
+          : route === "/posts"
+            ? ("daily" as const)
+            : ("weekly" as const);
+
+      return {
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
-        changeFrequency:
-          route === "/" ? ("monthly" as const) : ("weekly" as const),
-        priority: route === "/" ? 1.0 : 0.8,
-      }),
-    );
+        changeFrequency: routeChangeFreq,
+        priority: routePriority,
+      };
+    });
 
     // Fetch all published posts from Directus for dynamic routes
     const posts = await directus.request(
@@ -87,7 +106,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     }));
 
-    return [...staticPages, ...postEntries];
+    // Combine all entries
+    const allEntries = [...staticPages, ...postEntries];
+
+    console.log("[v0] Generated sitemap with", allEntries.length, "entries");
+    return allEntries;
   } catch (error) {
     console.error("[v0] Error generating sitemap:", error);
     // Return minimal fallback if everything fails
@@ -95,8 +118,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       {
         url: baseUrl,
         lastModified: new Date(),
-        changeFrequency: "monthly" as const,
+        changeFrequency: "weekly" as const,
         priority: 1.0,
+      },
+      {
+        url: `${baseUrl}/about`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.9,
+      },
+      {
+        url: `${baseUrl}/faq`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/contact`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
       },
     ];
   }

@@ -1,0 +1,28 @@
+{
+  "name": "Fancy Text Generator",
+  "short_name": "FancyText",
+  "description": "Transform your text into 12+ unique Unicode styles including bold, italic, script, monospace, circled, boxed, and more. Copy and paste anywhere!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6B7280",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["utilities", "productivity", "tools"],
+  "lang": "en",
+  "scope": "/",
+  "id": "fancy-text-generator"
+}

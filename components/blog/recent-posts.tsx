@@ -61,50 +61,46 @@ export function RecentPosts({ posts }: RecentPostsProps) {
 
   return (
     <section className="mt-12">
-      <Card className="border-2 border-gray-200 dark:border-gray-800 bg-white dark:bg-slate-950">
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold text-gray-900 dark:text-white">
-            Recent Posts
-          </CardTitle>
-          <CardDescription className="text-gray-600 dark:text-gray-400">
-            Check out our latest articles
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post) => (
-              <Link
-                key={post.id}
-                href={`/posts/${post.slug}`}
-                onClick={(e) => handlePostClick(e, post.slug)}
-                className="group"
-              >
-                <Card className="h-full border-gray-200 dark:border-gray-800 hover:border-purple-500 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-lg">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors line-clamp-2">
-                      {post.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm text-gray-500 dark:text-gray-500">
-                      {new Date(post.published_at).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </CardDescription>
-                  </CardHeader>
-                  {post.description && (
-                    <CardContent>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
-                        {post.description}
-                      </p>
-                    </CardContent>
-                  )}
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      <div className="bg-white/10 .dark:bg-black/20 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/20">
+        <h2 className="text-4xl font-black mb-4 text-white drop-shadow-lg text-center">
+          📖 Recent Posts
+        </h2>
+        <p className="text-white/80 text-lg mb-8 text-center">
+          Check out our latest articles
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <Link
+              key={post.id}
+              href={`/posts/${post.slug}`}
+              onClick={(e) => handlePostClick(e, post.slug)}
+              className="group"
+            >
+              <Card className="h-full border-2 border-white/30 bg-white/10 .dark:bg-black/20 backdrop-blur-xl rounded-2xl hover:border-cyan-400/70 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-400/20">
+                <CardHeader className="p-6">
+                  <CardTitle className="text-lg font-bold text-white group-hover:text-cyan-200 transition-colors line-clamp-2">
+                    {post.title}
+                  </CardTitle>
+                  <CardDescription className="text-white/60">
+                    {new Date(post.published_at).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </CardDescription>
+                </CardHeader>
+                {post.description && (
+                  <CardContent className="p-6 pt-0">
+                    <p className="text-white/80 text-sm line-clamp-3">
+                      {post.description}
+                    </p>
+                  </CardContent>
+                )}
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

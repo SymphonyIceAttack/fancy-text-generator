@@ -1,0 +1,111 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "options": {
+    "tui": { "compact_mode": true, "completions": {} },
+    "disabled_tools": []
+  },
+  "models": {
+    "MinMax": {
+      "model": "MinMax-M2",
+      "provider": "MinMax",
+      "think": true
+    }
+  },
+  "tools": {
+    "ls": {}
+  },
+  "permissions": {
+    "allowed_tools": [
+      "convert",
+      "pnpm",
+      "biome",
+      "grep",
+      "bash",
+      "view",
+      "ls",
+      "Read",
+      "edit",
+      "tree",
+      "mcp_context7_get-library-doc"
+    ]
+  },
+  "providers": {
+    "MinMax": {
+      "type": "anthropic",
+      "base_url": "https://api.minimaxi.com/anthropic",
+      "api_key": "$ANTHROPIC_API_KEY",
+      "models": [
+        {
+          "id": "MinMax-M2",
+          "name": "MinMax-M2",
+          "cost_per_1m_in": 3,
+          "cost_per_1m_out": 15,
+          "cost_per_1m_in_cached": 3.75,
+          "cost_per_1m_out_cached": 0.3,
+          "context_window": 200000,
+          "default_max_tokens": 50000,
+          "can_reason": true,
+          "supports_attachments": true,
+          "options": {}
+        }
+      ]
+    }
+  },
+  "mcp": {
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {
+        "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
+      }
+    },
+    "MiniMax-Mcp": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["minimax-mcp", "-y"],
+      "env": {
+        "MINIMAX_API_KEY": "$MINIMAX_API_KEY",
+        "MINIMAX_MCP_BASE_PATH": "/run/current-system/sw/bin/uvx",
+        "MINIMAX_API_HOST": "https://api.minimaxi.com",
+        "MINIMAX_API_RESOURCE_MODE": "url"
+      }
+    },
+    "MiniMax-Code": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["minimax-coding-plan-mcp"],
+      "env": {
+        "MINIMAX_API_KEY": "$MINIMAX_API_KEY_CODE",
+        "MINIMAX_MCP_BASE_PATH": "/run/current-system/sw/bin/uvx",
+        "MINIMAX_API_HOST": "https://api.minimaxi.com",
+        "MINIMAX_API_RESOURCE_MODE": "url"
+      }
+    }
+  },
+  "lsp": {
+    "go": {
+      "command": "gopls",
+      "filetypes": ["go"]
+    },
+    "nix": {
+      "command": "nil",
+      "filetypes": ["nix"]
+    },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["ts", "tsx"]
+    },
+    "biome": {
+      "command": "biome",
+      "args": ["lsp-proxy"],
+      "filetypes": ["ts", "tsx"]
+    }
+  }
+}
