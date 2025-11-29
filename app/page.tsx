@@ -20,35 +20,35 @@ export default function Home() {
       {/* Main content with glass morphism */}
       <div className="relative z-10">
         <nav className="border-b border-white/20 bg-white/10 .dark:bg-black/20 backdrop-blur-xl shadow-lg">
-          <div className="container mx-auto px-4 py-5 flex items-center justify-between">
+          <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-5 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <Link
               href="/"
-              className="text-2xl font-black tracking-tight text-white drop-shadow-lg hover:text-cyan-200 transition-colors duration-300"
+              className="text-xl sm:text-2xl font-black tracking-tight text-white drop-shadow-lg hover:text-cyan-200 transition-colors duration-300 text-center"
             >
               ✨ Fancy Text Generator
             </Link>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <Link
                 href="/about"
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-gray-500 hover:from-purple-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+                className="px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-gray-500 hover:from-purple-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
               >
                 About
               </Link>
               <Link
                 href="/faq"
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-gray-500 hover:from-pink-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+                className="px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-gray-500 hover:from-pink-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
               >
                 FAQ
               </Link>
               <Link
                 href="/contact"
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-gray-500 hover:from-green-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+                className="px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-gray-500 hover:from-green-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
               >
                 Contact
               </Link>
               <Link
                 href="/posts"
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-gray-500 hover:from-cyan-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+                className="px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-gray-500 hover:from-cyan-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
               >
                 Blog
               </Link>
@@ -62,18 +62,18 @@ export default function Home() {
           <FancyTextGenerator />
 
           {/* Showcase Images */}
-          <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <section className="py-12 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-white mb-4">
+              <div className="text-center mb-8 md:mb-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
                   ✨ See Amazing Results
                 </h2>
-                <p className="text-xl text-white/80">
+                <p className="text-lg sm:text-xl text-white/80">
                   Explore the endless possibilities with our text generator
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 <div className="relative rounded-2xl overflow-hidden group">
                   <Image
                     src="/images/unicode-text-showcase.jpg"
@@ -82,8 +82,8 @@ export default function Home() {
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white font-bold text-lg">
+                  <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
+                    <h3 className="text-white font-bold text-base md:text-lg">
                       12+ Text Styles
                     </h3>
                     <p className="text-white/80 text-sm">
@@ -100,8 +100,8 @@ export default function Home() {
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white font-bold text-lg">
+                  <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
+                    <h3 className="text-white font-bold text-base md:text-lg">
                       Social Media Ready
                     </h3>
                     <p className="text-white/80 text-sm">
@@ -110,7 +110,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="relative rounded-2xl overflow-hidden group">
+                <div className="relative rounded-2xl overflow-hidden group sm:col-span-2 lg:col-span-1">
                   <Image
                     src="/images/multilingual-support.jpg"
                     alt="Multilingual support"
@@ -118,8 +118,8 @@ export default function Home() {
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white font-bold text-lg">
+                  <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
+                    <h3 className="text-white font-bold text-base md:text-lg">
                       Multi-Language
                     </h3>
                     <p className="text-white/80 text-sm">
@@ -129,10 +129,10 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="text-center mt-12">
+              <div className="text-center mt-8 md:mt-12">
                 <Link
                   href="/about"
-                  className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-400 hover:to-pink-400 text-white font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+                  className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-400 hover:to-pink-400 text-white font-bold text-base sm:text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
                 >
                   Learn More About Us
                 </Link>

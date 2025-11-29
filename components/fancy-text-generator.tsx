@@ -663,31 +663,31 @@ export function FancyTextGenerator() {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative">
+    <div className="min-h-screen py-6 md:py-12 px-3 sm:px-4 lg:px-8 relative">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-4 -left-4 w-72 h-72 bg-gradient-to-br from-cyan-400/20 to-transparent rounded-full blur-3xl" />
-        <div className="absolute -bottom-8 -right-8 w-80 h-80 bg-gradient-to-tl from-pink-400/20 to-transparent rounded-full blur-3xl" />
+        <div className="absolute -top-4 -left-4 w-40 h-40 md:w-72 md:h-72 bg-gradient-to-br from-cyan-400/20 to-transparent rounded-full blur-3xl" />
+        <div className="absolute -bottom-8 -right-8 w-48 h-48 md:w-80 md:h-80 bg-gradient-to-tl from-pink-400/20 to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-5xl mx-auto relative">
         {/* Enhanced Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-3 mb-6">
+        <div className="text-center mb-8 md:mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6">
             <div className="relative">
-              <Sparkles className="w-10 h-10 text-cyan-300 animate-pulse" />
+              <Sparkles className="w-8 h-8 md:w-10 md:h-10 text-cyan-300 animate-pulse" />
               <div className="absolute inset-0 bg-cyan-300/20 rounded-full blur-xl animate-pulse" />
             </div>
-            <h1 className="text-6xl font-black text-white drop-shadow-2xl text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white drop-shadow-2xl text-balance text-center">
               {displayedTitle}
               <span className="text-cyan-300 animate-pulse">|</span>
             </h1>
             <div className="relative">
-              <Sparkles className="w-10 h-10 text-pink-300 animate-pulse delay-300" />
+              <Sparkles className="w-8 h-8 md:w-10 md:h-10 text-pink-300 animate-pulse delay-300" />
               <div className="absolute inset-0 bg-pink-300/20 rounded-full blur-xl animate-pulse delay-300" />
             </div>
           </div>
-          <p className="text-xl text-white/90 text-pretty max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 text-pretty max-w-3xl mx-auto leading-relaxed px-2">
             Transform your plain text into stunning Unicode characters.
             <span className="text-cyan-200 font-semibold">
               {" "}
@@ -698,10 +698,10 @@ export function FancyTextGenerator() {
         </div>
 
         {/* Enhanced Input Section */}
-        <Card className="p-8 mb-10 bg-white/20 dark:bg-black/30 backdrop-blur-xl border-white/30 shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500">
+        <Card className="p-4 md:p-8 mb-8 md:mb-10 bg-white/20 dark:bg-black/30 backdrop-blur-xl border-white/30 shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500">
           <label
             htmlFor="input-text"
-            className="block text-lg font-bold mb-4 text-white drop-shadow-md"
+            className="block text-base md:text-lg font-bold mb-3 md:mb-4 text-white drop-shadow-md"
           >
             ✍️ Enter your text
           </label>
@@ -710,16 +710,16 @@ export function FancyTextGenerator() {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="Type something magical..."
-            className="min-h-[140px] text-lg resize-none bg-white/90 dark:bg-black/50 border-white/50 text-foreground placeholder:text-muted-foreground focus:border-cyan-400 focus:ring-cyan-400/50 transition-all duration-300"
+            className="min-h-[100px] md:min-h-[140px] text-base md:text-lg resize-none bg-white/90 dark:bg-black/50 border-white/50 text-foreground placeholder:text-muted-foreground focus:border-cyan-400 focus:ring-cyan-400/50 transition-all duration-300"
           />
         </Card>
 
         {/* Enhanced Output Section */}
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-white drop-shadow-xl text-center mb-8">
+        <div className="space-y-4 md:space-y-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-white drop-shadow-xl text-center mb-6 md:mb-8">
             🎨 Styled Results
           </h2>
-          <div className="grid gap-6">
+          <div className="grid gap-4 md:gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
             {textStyles.map((style, index) => {
               const transformedText = style.transform(inputText);
               const isCopied = copiedIndex === index;
@@ -728,34 +728,34 @@ export function FancyTextGenerator() {
                 <Card
                   key={style.name}
                   className={cn(
-                    "p-6 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl border-2 backdrop-blur-xl",
+                    "p-4 md:p-6 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl border-2 backdrop-blur-xl",
                     isCopied
                       ? "border-cyan-400 bg-cyan-500/20 shadow-cyan-400/50"
                       : "border-white/30 bg-white/10 dark:bg-black/20 hover:border-cyan-400/70 hover:shadow-cyan-400/30",
                   )}
                 >
-                  <div className="flex items-start justify-between gap-6">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/30 to-gray-500/30 border border-white/20">
-                          <h3 className="font-bold text-sm text-white">
+                  <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-6">
+                    <div className="flex-1 min-w-0 order-2 sm:order-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                        <div className="px-2 md:px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/30 to-gray-500/30 border border-white/20 self-start">
+                          <h3 className="font-bold text-xs md:text-sm text-white whitespace-nowrap">
                             {style.name}
                           </h3>
                         </div>
-                        <span className="text-xs text-white/70 font-medium">
+                        <span className="text-xs text-white/70 font-medium block">
                           {style.description}
                         </span>
                       </div>
-                      <p className="break-words leading-relaxed text-2xl font-medium text-white drop-shadow-sm">
+                      <p className="break-words leading-relaxed text-lg md:text-2xl font-medium text-white drop-shadow-sm">
                         {transformedText}
                       </p>
                     </div>
                     <Button
-                      size="lg"
+                      size="default"
                       variant={isCopied ? "default" : "outline"}
                       onClick={() => copyToClipboard(transformedText, index)}
                       className={cn(
-                        "shrink-0 transition-all duration-300 hover:scale-110 backdrop-blur-sm",
+                        "shrink-0 transition-all duration-300 hover:scale-110 backdrop-blur-sm order-1 sm:order-2 w-full sm:w-auto",
                         isCopied
                           ? "bg-gradient-to-r from-cyan-500 to-gray-500 text-white border-0 shadow-lg"
                           : "bg-white/20 hover:bg-white/30 text-white border-white/30 hover:border-cyan-400/50",
@@ -763,13 +763,13 @@ export function FancyTextGenerator() {
                     >
                       {isCopied ? (
                         <>
-                          <Check className="w-5 h-5 mr-2" />
-                          Copied!
+                          <Check className="w-4 h-4 mr-2" />
+                          <span className="text-sm">Copied!</span>
                         </>
                       ) : (
                         <>
-                          <Copy className="w-5 h-5 mr-2" />
-                          Copy
+                          <Copy className="w-4 h-4 mr-2" />
+                          <span className="text-sm">Copy</span>
                         </>
                       )}
                     </Button>
@@ -781,9 +781,9 @@ export function FancyTextGenerator() {
         </div>
 
         {/* Enhanced Footer */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20">
-            <p className="text-white/90 font-medium">
+        <div className="mt-12 md:mt-16 text-center">
+          <div className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20">
+            <p className="text-sm md:text-base text-white/90 font-medium">
               ✨ All transformations use Unicode characters that work across all
               platforms
             </p>
