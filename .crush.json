@@ -2,7 +2,7 @@
   "$schema": "https://charm.land/crush.json",
   "options": {
     "tui": { "compact_mode": true, "completions": {} },
-    "disabled_tools": []
+    "disabled_tools": ["npm", "convert", "python3"]
   },
   "models": {
     "MinMax": {
@@ -16,7 +16,8 @@
   },
   "permissions": {
     "allowed_tools": [
-      "convert",
+      "download",
+      "magick",
       "pnpm",
       "biome",
       "grep",
@@ -26,7 +27,12 @@
       "Read",
       "edit",
       "tree",
-      "mcp_context7_get-library-doc"
+      "mcp_context7_get-library-doc",
+      "mcp_chrome-devtools*",
+      "mcp_context7*",
+      "mcp_MiniMax-Mcp*",
+      "mcp_MiniMax-Code*",
+      "mcp_MiniMax-Mcp_text_to_image"
     ]
   },
   "providers": {
@@ -38,14 +44,16 @@
         {
           "id": "MinMax-M2",
           "name": "MinMax-M2",
-          "cost_per_1m_in": 3,
-          "cost_per_1m_out": 15,
-          "cost_per_1m_in_cached": 3.75,
-          "cost_per_1m_out_cached": 0.3,
-          "context_window": 200000,
-          "default_max_tokens": 50000,
+          "cost_per_1m_in": 0.55,
+          "cost_per_1m_out": 2.19,
+          "cost_per_1m_in_cached": 0.27,
+          "cost_per_1m_out_cached": 0.55,
+          "context_window": 196608,
+          "default_max_tokens": 65536,
           "can_reason": true,
-          "supports_attachments": true,
+          "reasoning_levels": ["low", "medium", "high"],
+          "default_reasoning_effort": "high",
+          "supports_attachments": false,
           "options": {}
         }
       ]

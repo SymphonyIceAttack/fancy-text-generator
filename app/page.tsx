@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FancyTextGenerator } from "@/components/fancy-text-generator";
+import { MobileMenu } from "@/components/mobile-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
@@ -19,40 +20,51 @@ export default function Home() {
 
       {/* Main content with glass morphism */}
       <div className="relative z-10">
-        <nav className="border-b border-white/20 bg-white/10 .dark:bg-black/20 backdrop-blur-xl shadow-lg">
-          <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-5 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+        <nav className="sticky top-0 z-50 border-b border-white/20 bg-white/10 .dark:bg-black/20 backdrop-blur-xl shadow-lg">
+          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            {/* Logo */}
             <Link
               href="/"
-              className="text-xl sm:text-2xl font-black tracking-tight text-white drop-shadow-lg hover:text-cyan-200 transition-colors duration-300 text-center"
+              className="text-xl sm:text-2xl font-black tracking-tight text-white drop-shadow-lg hover:text-cyan-200 transition-colors duration-300"
             >
               ✨ Fancy Text Generator
             </Link>
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-3">
               <Link
                 href="/about"
-                className="px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-gray-500 hover:from-purple-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-gray-500 hover:from-purple-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
               >
                 About
               </Link>
               <Link
                 href="/faq"
-                className="px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-gray-500 hover:from-pink-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-gray-500 hover:from-pink-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
               >
                 FAQ
               </Link>
               <Link
                 href="/contact"
-                className="px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-gray-500 hover:from-green-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-gray-500 hover:from-green-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
               >
                 Contact
               </Link>
               <Link
                 href="/posts"
-                className="px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-gray-500 hover:from-cyan-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-gray-500 hover:from-cyan-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
               >
                 Blog
               </Link>
               <ThemeToggle />
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="flex lg:hidden items-center gap-3">
+              <div className="hidden sm:block">
+                <ThemeToggle />
+              </div>
+              <MobileMenu themeToggle={<ThemeToggle />} />
             </div>
           </div>
         </nav>
