@@ -26,13 +26,27 @@
       "ls",
       "Read",
       "edit",
+      "multiedit",
+      "write",
       "tree",
-      "mcp_context7_get-library-doc",
-      "mcp_chrome-devtools*",
-      "mcp_context7*",
-      "mcp_MiniMax-Mcp*",
-      "mcp_MiniMax-Code*",
-      "mcp_MiniMax-Mcp_text_to_image"
+      "mcp_chrome-devtools_evaluate_script",
+      "mcp_chrome-devtools_list_network_requests",
+      "mcp_chrome-devtools_fill",
+      "mcp_chrome-devtools_click",
+      "mcp_chrome-devtools_take_snapshot",
+      "mcp_chrome-devtools_list_console_messages",
+      "mcp_chrome-devtools_new_page",
+      "mcp_chrome-devtools_navigate_page",
+      "mcp_chrome-devtools_list_pages",
+      "mcp_chrome-devtools_select_page",
+      "mcp_context7_resolve_library_id",
+      "mcp_context7_get_library_docs",
+      "mcp_MiniMax-Mcp_text_to_image",
+      "mcp_MiniMax-Mcp_music_generation",
+      "mcp_MiniMax-Mcp_generate_video",
+      "mcp_MiniMax-Mcp_text_to_audio",
+      "mcp_MiniMax-Code_understand_imag",
+      "mcp_MiniMax-Code_web_search"
     ]
   },
   "providers": {
@@ -94,6 +108,16 @@
         "MINIMAX_API_HOST": "https://api.minimaxi.com",
         "MINIMAX_API_RESOURCE_MODE": "url"
       }
+    },
+    "serena": {
+      "command": "uvx",
+      "type": "stdio",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server"
+      ]
     }
   },
   "lsp": {

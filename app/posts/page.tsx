@@ -1,5 +1,6 @@
 import { readItems } from "@directus/sdk";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { MobileMenu } from "@/components/mobile-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -34,6 +35,7 @@ export default async function BlogPage() {
           "description",
           "published_at",
           "status",
+          "imageurl",
         ],
         filter: {
           status: { _eq: "published" },
@@ -137,8 +139,18 @@ export default async function BlogPage() {
                         href={`/posts/${post.slug}`}
                         className="group"
                       >
-                        <Card className="h-full transition-all hover:shadow-2xl hover:shadow-cyan-400/20 hover:border-cyan-400/70 border-2 border-white/30 rounded-3xl p-8 bg-white/10 .dark:bg-black/20 backdrop-blur-xl">
-                          <CardHeader className="pb-4">
+                        <Card className="h-full transition-all hover:shadow-2xl hover:shadow-cyan-400/20 hover:border-cyan-400/70 border-2 border-white/30 rounded-3xl overflow-hidden bg-white/10 .dark:bg-black/20 backdrop-blur-xl">
+                          {post.imageurl && (
+                            <div className="relative w-full h-48">
+                              <Image
+                                fill={true}
+                                src={`https://symcloud.top/${post.imageurl}`}
+                                alt={post.title}
+                                className="object-cover"
+                              />
+                            </div>
+                          )}
+                          <CardHeader className="pb-4 p-6">
                             <CardTitle className="text-2xl group-hover:text-cyan-200 transition-colors text-balance text-white font-bold">
                               {post.title}
                             </CardTitle>
@@ -153,7 +165,7 @@ export default async function BlogPage() {
                               )}
                             </CardDescription>
                           </CardHeader>
-                          <CardContent>
+                          <CardContent className="px-6 pb-6">
                             <p className="text-white/80 line-clamp-3 text-pretty leading-relaxed">
                               {post.description}
                             </p>
