@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FancyTextGenerator } from "@/components/fancy-text-generator";
 import { MobileMenu } from "@/components/mobile-menu";
+import { SiteFooter } from "@/components/site-footer";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
@@ -56,6 +57,14 @@ export default function Home() {
               >
                 Blog
               </Link>
+              <a
+                href="https://github.com/SymphonyIceAttack/fancy-text-generator"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-gray-500 hover:from-orange-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+              >
+                GitHub
+              </a>
               <ThemeToggle />
             </div>
 
@@ -72,6 +81,57 @@ export default function Home() {
         {/* Content container with glass morphism */}
         <div className="bg-white/10 .dark:bg-black/20 backdrop-blur-xl min-h-screen">
           <FancyTextGenerator />
+
+          {/* SEO Content Section */}
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white/5 .dark:bg-black/10">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                Why Use Our Fancy Text Generator?
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-left">
+                <div className="space-y-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-cyan-200">
+                    🎨 Multiple Text Styles
+                  </h3>
+                  <p className="text-white/80 text-sm md:text-base">
+                    Choose from over 12 unique Unicode text styles including
+                    bold, italic, script, monospace, circled, boxed,
+                    mathematical symbols, and more. Each style works across all
+                    platforms and devices.
+                  </p>
+
+                  <h3 className="text-lg md:text-xl font-semibold text-cyan-200">
+                    📱 Social Media Ready
+                  </h3>
+                  <p className="text-white/80 text-sm md:text-base">
+                    Perfect for Instagram, Twitter, Facebook, Discord, WhatsApp,
+                    and any messaging platform. Make your posts stand out with
+                    eye-catching text styles that work everywhere.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-cyan-200">
+                    🌍 Multi-Language Support
+                  </h3>
+                  <p className="text-white/80 text-sm md:text-base">
+                    Works with English and Chinese characters, preserving
+                    international text while applying Unicode transformations.
+                    No need to worry about character encoding issues.
+                  </p>
+
+                  <h3 className="text-lg md:text-xl font-semibold text-cyan-200">
+                    ⚡ Instant Copy & Paste
+                  </h3>
+                  <p className="text-white/80 text-sm md:text-base">
+                    Generate stylish text instantly with one-click copying.
+                    Paste directly into social media posts, messages, documents,
+                    or anywhere you need creative text.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* Showcase Images */}
           <section className="py-12 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8">
@@ -153,6 +213,8 @@ export default function Home() {
           </section>
         </div>
       </div>
+
+      <SiteFooter />
     </main>
   );
 }

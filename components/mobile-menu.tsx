@@ -93,6 +93,15 @@ export function MobileMenu({ themeToggle }: MobileMenuProps) {
                   >
                     Blog
                   </Link>
+                  <a
+                    href="https://github.com/SymphonyIceAttack/fancy-text-generator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMenu}
+                    className="flex items-center px-4 py-3 rounded-xl bg-gradient-to-r from-orange-500/80 to-gray-500/80 hover:from-orange-400 hover:to-gray-400 text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-white/20"
+                  >
+                    GitHub
+                  </a>
                 </div>
               </nav>
 

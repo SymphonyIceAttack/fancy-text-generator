@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://yourdomain.com"),
   title: {
-    default: "Fancy Text Generator - Create Stylish Unicode Text Online Free",
+    default: "Fancy Text Generator - Unicode Text Styles Online",
     template: "%s | Fancy Text Generator",
   },
   description:
-    "Transform your text into 12+ unique Unicode styles including bold, italic, script, monospace, circled, boxed, and more. Perfect for social media, messaging, and creative projects. Free online tool with instant copy & paste functionality.",
+    "Create stylish Unicode text with 12+ unique styles. Perfect for social media, messaging, and creative projects. Free online text converter with instant copy functionality.",
   keywords: [
     "fancy text",
     "unicode text",
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://yourdomain.com",
-    title: "Fancy Text Generator - Create Stylish Unicode Text Online Free",
+    title: "Fancy Text Generator - Unicode Text Styles Online",
     description:
-      "Transform your text into 12+ unique Unicode styles including bold, italic, script, monospace, circled, boxed, and more. Perfect for social media, messaging, and creative projects.",
+      "Create stylish Unicode text with 12+ unique styles. Perfect for social media, messaging, and creative projects. Free online text converter.",
     siteName: "Fancy Text Generator",
     images: [
       {
@@ -73,9 +73,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fancy Text Generator - Create Stylish Unicode Text Online Free",
+    title: "Fancy Text Generator - Unicode Text Styles Online",
     description:
-      "Transform your text into 12+ unique Unicode styles. Perfect for social media, messaging, and creative projects. Free online tool with instant copy & paste functionality.",
+      "Create stylish Unicode text with 12+ unique styles. Perfect for social media and messaging. Free online text converter with copy & paste.",
     creator: "@yourusername",
     images: ["/images/unicode-text-showcase.jpg"],
   },
@@ -96,14 +96,14 @@ export const metadata: Metadata = {
     yahoo: "your-yahoo-verification-code",
   },
   alternates: {
-    canonical: "https://yourdomain.com",
+    canonical: "https://yourdomain.com/",
     languages: {
       "en-US": "https://yourdomain.com/en",
     },
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
+    shortcut: "/icons/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
     other: [
       {

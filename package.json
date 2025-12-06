@@ -1,7 +1,47 @@
 {
   "name": "fancy-text-generator",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
+  "description": "Transform your text into beautiful Unicode styles with our free, fast, and user-friendly online tool. Perfect for social media, messaging, and creative projects.",
+  "keywords": [
+    "fancy-text",
+    "unicode",
+    "text-generator",
+    "social-media",
+    "text-styles",
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "text-converter",
+    "instagram-fonts",
+    "twitter-fonts",
+    "stylish-text",
+    "unicode-converter",
+    "bold-text",
+    "italic-text",
+    "script-text",
+    "monospace-text",
+    "circled-text",
+    "boxed-text"
+  ],
+  "author": {
+    "name": "SymphonyIceAttack",
+    "email": "symphonyiceattack@example.com",
+    "url": "https://github.com/SymphonyIceAttack"
+  },
+  "license": "MIT",
+  "homepage": "https://fancytextgenerator.art/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SymphonyIceAttack/fancy-text-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SymphonyIceAttack/fancy-text-generator/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

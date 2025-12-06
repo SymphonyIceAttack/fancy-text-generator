@@ -679,7 +679,7 @@ export function FancyTextGenerator() {
               <div className="absolute inset-0 bg-cyan-300/20 rounded-full blur-xl animate-pulse" />
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white drop-shadow-2xl text-balance text-center">
-              {displayedTitle}
+              {displayedTitle} - Transform Text with Unicode Styles
               <span className="text-cyan-300 animate-pulse">|</span>
             </h1>
             <div className="relative">
