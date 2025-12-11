@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Toaster } from "sonner";
 import { FancyTextGenerator } from "@/components/fancy-text-generator";
 import { MobileMenu } from "@/components/mobile-menu";
 import { SiteFooter } from "@/components/site-footer";
@@ -50,6 +51,12 @@ export default function Home() {
                 className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-gray-500 hover:from-green-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
               >
                 Contact
+              </Link>
+              <Link
+                href="/privacy"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-gray-500 hover:from-orange-400 hover:to-gray-400 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-white/20"
+              >
+                Privacy
               </Link>
               <Link
                 href="/posts"
@@ -215,6 +222,13 @@ export default function Home() {
       </div>
 
       <SiteFooter />
+      <Toaster
+        position="bottom-right"
+        expand={true}
+        richColors
+        closeButton
+        theme="dark"
+      />
     </main>
   );
 }

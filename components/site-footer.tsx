@@ -50,6 +50,12 @@ export function SiteFooter() {
               >
                 Contact
               </Link>
+              <Link
+                href="/privacy"
+                className="block text-white/70 hover:text-cyan-200 text-sm transition-colors duration-300"
+              >
+                Privacy Policy
+              </Link>
             </nav>
           </div>
 
@@ -108,6 +114,13 @@ export function SiteFooter() {
               >
                 GitHub
               </a>
+              <span>•</span>
+              <Link
+                href="/privacy"
+                className="hover:text-cyan-200 transition-colors duration-300"
+              >
+                Privacy
+              </Link>
               <span>•</span>
               <Link
                 href="/sitemap.xml"

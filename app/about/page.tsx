@@ -254,10 +254,16 @@ export default function About() {
                         <h3 className="text-xl font-bold text-cyan-200 mb-2">
                           Privacy & Security
                         </h3>
-                        <p className="text-white/80">
+                        <p className="text-white/80 mb-3">
                           All text processing happens in your browser - we don't
                           store or track any of your text transformations.
                         </p>
+                        <Link
+                          href="/privacy"
+                          className="inline-block text-sm text-cyan-300 hover:text-cyan-200 underline transition-colors"
+                        >
+                          Read our full Privacy Policy →
+                        </Link>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">

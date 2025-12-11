@@ -87,6 +87,13 @@ export function MobileMenu({ themeToggle }: MobileMenuProps) {
                     Contact
                   </Link>
                   <Link
+                    href="/privacy"
+                    onClick={closeMenu}
+                    className="flex items-center px-4 py-3 rounded-xl bg-gradient-to-r from-orange-500/80 to-gray-500/80 hover:from-orange-400 hover:to-gray-400 text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-white/20"
+                  >
+                    Privacy
+                  </Link>
+                  <Link
                     href="/posts"
                     onClick={closeMenu}
                     className="flex items-center px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-500/80 to-gray-500/80 hover:from-cyan-400 hover:to-gray-400 text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-white/20"
@@ -98,7 +105,7 @@ export function MobileMenu({ themeToggle }: MobileMenuProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={closeMenu}
-                    className="flex items-center px-4 py-3 rounded-xl bg-gradient-to-r from-orange-500/80 to-gray-500/80 hover:from-orange-400 hover:to-gray-400 text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-white/20"
+                    className="flex items-center px-4 py-3 rounded-xl bg-gradient-to-r from-gray-500/80 to-gray-600/80 hover:from-gray-400 hover:to-gray-500 text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-white/20"
                   >
                     GitHub
                   </a>

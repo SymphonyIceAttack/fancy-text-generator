@@ -5,7 +5,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
-Disallow: /private/
 
 # Sitemap location
 Sitemap: https://yourdomain.com/sitemap.xml
