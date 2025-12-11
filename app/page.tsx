@@ -15,7 +15,7 @@ const faqSchema = {
       name: "What is a fancy text generator?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A fancy text generator transforms regular text into special Unicode characters that create different visual styles. These characters can be copied and used anywhere that supports Unicode text, including social media, messaging apps, and websites.",
+        text: "A fancy text generator, also known as a font generator with copy and paste functionality, transforms regular text into special Unicode characters that create different visual styles. These characters can be copied and used anywhere that supports Unicode text, including social media, messaging apps, and websites.",
       },
     },
     {
@@ -47,7 +47,7 @@ const faqSchema = {
       name: "How do I copy the generated text?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Simply click the 'Copy' button next to any styled text result. The text will be copied to your clipboard and you can paste it anywhere you like. The button will show a checkmark to confirm the text has been copied.",
+        text: "Simply click the 'Copy' button next to any styled text result. This font generator provides easy copy and paste functionality - the text will be copied to your clipboard and you can paste it anywhere you like. The button will show a checkmark to confirm the text has been copied.",
       },
     },
     {

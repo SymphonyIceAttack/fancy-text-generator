@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     "fancy text",
     "unicode text",
     "text generator",
+    "font generator copy and paste",
     "stylish text",
     "text converter",
     "unicode converter",
