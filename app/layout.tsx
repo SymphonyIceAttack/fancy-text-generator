@@ -2,7 +2,6 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import type React from "react";
-import { JsonLdStructuredData } from "@/components/seo/json-ld";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -19,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || ""),
   title: {
     default: "Fancy Text Generator - Unicode Text Styles Online",
     template: "%s | Fancy Text Generator",
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
     "fraktur text",
     "double struck text",
   ],
-  authors: [{ name: "SymphonyIceAttack", url: "https://yourdomain.com" }],
+  authors: [{ name: "SymphonyIceAttack" }],
   creator: "SymphonyIceAttack",
   publisher: "SymphonyIceAttack",
   formatDetection: {
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://yourdomain.com",
+    url: process.env.NEXT_PUBLIC_SITE_URL,
     title: "Fancy Text Generator - Unicode Text Styles Online",
     description:
       "Create stylish Unicode text with 12+ unique styles. Perfect for social media, messaging, and creative projects. Free online text converter.",
@@ -76,7 +75,7 @@ export const metadata: Metadata = {
     title: "Fancy Text Generator - Unicode Text Styles Online",
     description:
       "Create stylish Unicode text with 12+ unique styles. Perfect for social media and messaging. Free online text converter with copy & paste.",
-    creator: "@yourusername",
+    creator: "@SymphonyIceAttack",
     images: ["/images/unicode-text-showcase.jpg"],
   },
   robots: {
@@ -90,15 +89,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-site-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
-  },
   alternates: {
-    canonical: "https://yourdomain.com/",
+    canonical: process.env.NEXT_PUBLIC_SITE_URL,
     languages: {
-      "en-US": "https://yourdomain.com/en",
+      en: process.env.NEXT_PUBLIC_SITE_URL,
     },
   },
   icons: {
@@ -150,7 +144,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        <JsonLdStructuredData />
         <ThemeProvider>
           {children}
           <Analytics />
