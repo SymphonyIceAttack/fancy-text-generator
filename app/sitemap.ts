@@ -58,34 +58,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.log("[v0] Discovered routes:", discoveredRoutes);
 
     // Generate sitemap entries for discovered static routes with enhanced SEO
-    const staticPages: MetadataRoute.Sitemap = discoveredRoutes.map((route) => {
-      const routePriority =
-        route === "/"
-          ? 1.0
-          : route === "/about"
-            ? 0.9
-            : route === "/faq"
-              ? 0.8
-              : route === "/contact"
+    const staticPages: MetadataRoute.Sitemap = discoveredRoutes
+      .filter((route) => !route.startsWith("/posts/")) // Filter out posts routes as they're noindexed
+      .map((route) => {
+        const routePriority =
+          route === "/"
+            ? 1.0
+            : route === "/about"
+              ? 0.9
+              : route === "/faq"
                 ? 0.8
-                : route === "/posts"
-                  ? 0.7
-                  : 0.6;
+                : route === "/contact"
+                  ? 0.8
+                  : route === "/posts"
+                    ? 0.7
+                    : 0.6;
 
-      const routeChangeFreq =
-        route === "/"
-          ? ("daily" as const)
-          : route === "/posts"
+        const routeChangeFreq =
+          route === "/"
             ? ("daily" as const)
-            : ("weekly" as const);
+            : route === "/posts"
+              ? ("daily" as const)
+              : ("weekly" as const);
 
-      return {
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: routeChangeFreq,
-        priority: routePriority,
-      };
-    });
+        return {
+          url: `${baseUrl}${route}`,
+          lastModified: new Date(),
+          changeFrequency: routeChangeFreq,
+          priority: routePriority,
+        };
+      });
 
     // Fetch all published posts from Directus for dynamic routes
     const posts = await directus.request(
