@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin/", "/api/", "/draft/", "/gallery/", "/posts/"],
+        disallow: ["/admin/", "/api/", "/draft/", "/gallery/"],
       },
       // Exception: Allow the specific post page
       {
