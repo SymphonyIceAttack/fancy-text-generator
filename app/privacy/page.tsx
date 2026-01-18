@@ -86,7 +86,7 @@ export default function PrivacyPolicy() {
                   handle your information.
                 </p>
                 <p className="text-sm text-white/70 mt-4">
-                  Last updated: December 11, 2025
+                  Last updated: January 18, 2026
                 </p>
               </div>
 
@@ -221,6 +221,30 @@ export default function PrivacyPolicy() {
                         We use Vercel for hosting and CDN services. They may
                         collect basic technical data like any web host, but we
                         don't share any user data with them.
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-cyan-200 mb-2">
+                        Google AdSense (Pending Approval)
+                      </h3>
+                      <p className="text-white/80">
+                        We are currently applying to use Google AdSense for
+                        displaying advertisements on our website. If approved,
+                        Google AdSense may use cookies and similar technologies
+                        to display ads based on your preferences. This includes
+                        the use of DoubleClick DART cookies for non-personalized
+                        ads. Google AdSense is subject to Google's Privacy
+                        Policy. Users can opt out of personalized advertising by
+                        visiting{" "}
+                        <a
+                          href="https://www.aboutads.info/choices"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cyan-300 hover:text-cyan-200 underline"
+                        >
+                          About Ads
+                        </a>{" "}
+                        or through their browser settings.
                       </p>
                     </div>
                     <div>
